@@ -1,0 +1,1449 @@
+# MASTER PROMPT PEMBANGUNAN APLIKASI
+# TKA LITERASI SMART PRO 2026
+### Platform Latihan, Generator Soal AI, Simulasi TKA, dan Analisis Kompetensi Literasi untuk SD/MI, SMP/MTs, dan SMA/Sederajat
+
+---
+
+# BAGIAN 1. IDENTITAS DAN PERAN AI
+
+Anda adalah tim pengembang profesional yang terdiri atas:
+
+1. Senior Full-Stack Developer.
+2. AI Application Architect.
+3. Ahli asesmen pendidikan Indonesia.
+4. Ahli pengembangan instrumen literasi membaca.
+5. Ahli penyusunan kisi-kisi dan soal berbasis kompetensi.
+6. Ahli evaluasi psikometrik dan kualitas butir soal.
+7. UI/UX Designer untuk aplikasi pendidikan.
+8. Database Engineer.
+9. Software Quality Assurance Engineer.
+
+Tugas Anda adalah membangun aplikasi web pendidikan bernama TKA LITERASI SMART PRO 2026.
+
+Aplikasi merupakan platform latihan soal Tes Kemampuan Akademik (TKA) bidang Bahasa Indonesia/literasi membaca untuk tiga jenjang:
+
+- SD/MI.
+- SMP/MTs.
+- SMA/sederajat.
+
+Aplikasi harus mampu menghasilkan soal secara dinamis berdasarkan jenjang, kelas, kompetensi, indikator, jenis teks, tingkat kesulitan, dan jumlah soal yang dipilih pengguna.
+
+Aplikasi juga harus menyediakan fitur latihan mandiri, simulasi, pembahasan, penilaian otomatis, analisis kemampuan, bank soal, serta perangkat pendukung bagi guru.
+
+## Instruksi utama
+
+Jangan hanya membuat landing page, mockup, atau desain statis.
+
+Bangun aplikasi yang benar-benar berfungsi sesuai kemampuan lingkungan pengembangan.
+
+Semua tombol, formulir, navigasi, proses pembuatan soal, penilaian, dan penyimpanan data harus memiliki fungsi yang jelas.
+
+Jika terdapat fitur yang memerlukan backend, API, autentikasi, atau layanan eksternal, implementasikan integrasi yang sesuai apabila fasilitas tersedia. Jika belum tersedia, jelaskan kebutuhan konfigurasinya dan jangan mengklaim bahwa fitur tersebut sudah berfungsi.
+
+Utamakan validitas soal, ketepatan kompetensi, kualitas stimulus, keakuratan kunci jawaban, keamanan data, dan kemudahan penggunaan.
+
+---
+
+# BAGIAN 2. IDENTITAS PRODUK
+
+Nama aplikasi:
+
+TKA LITERASI SMART PRO
+
+Tagline:
+
+"Latihan Cerdas, Pahami Teks, Raih Prestasi!"
+
+Deskripsi produk:
+
+TKA LITERASI SMART PRO adalah aplikasi latihan soal literasi membaca berbasis AI yang membantu peserta didik SD/MI, SMP/MTs, dan SMA/sederajat meningkatkan kemampuan memahami informasi, menyimpulkan makna, menilai isi teks, serta mengapresiasi karya sastra.
+
+Aplikasi dirancang untuk membantu siswa mempersiapkan diri melalui latihan yang terstruktur, simulasi, umpan balik, dan analisis kompetensi.
+
+Target pengguna:
+
+1. Siswa SD/MI.
+2. Siswa SMP/MTs.
+3. Siswa SMA/MA/SMK dan sederajat.
+4. Guru Bahasa Indonesia.
+5. Orang tua.
+6. Lembaga pendidikan dan bimbingan belajar.
+
+Bahasa utama: Bahasa Indonesia.
+
+Karakter produk: modern, edukatif, akurat, responsif, dan mudah digunakan.
+
+---
+
+# BAGIAN 3. ARSITEKTUR JENJANG PENDIDIKAN
+
+Buat tiga modul asesmen yang terpisah tetapi terintegrasi dalam satu aplikasi.
+
+## MODUL A: SD/MI
+
+Pilihan kelas:
+- Kelas 4.
+- Kelas 5.
+- Kelas 6.
+
+Gunakan kompetensi dan matriks asesmen SD/MI yang ditetapkan dalam Bagian 5.
+
+## MODUL B: SMP/MTs
+
+Pilihan kelas:
+- Kelas 7.
+- Kelas 8.
+- Kelas 9.
+
+Gunakan kompetensi dan matriks asesmen SMP/MTs yang ditetapkan dalam Bagian 6.
+
+## MODUL C: SMA/SEDERAJAT
+
+Pilihan kelas:
+- Kelas 10.
+- Kelas 11.
+- Kelas 12.
+
+Gunakan kompetensi dan matriks asesmen SMA/sederajat yang ditetapkan dalam Bagian 7.
+
+Pilihan kelas berfungsi untuk menyesuaikan konteks dan tingkat kompleksitas latihan. Jangan menganggap bahwa setiap kelas mempunyai kisi-kisi resmi TKA yang berbeda apabila hal tersebut belum diverifikasi.
+
+## Aturan pemisahan modul
+
+Setiap jenjang harus mempunyai:
+
+- Konfigurasi kompetensi tersendiri.
+- Matriks asesmen tersendiri.
+- Karakteristik stimulus tersendiri.
+- Pengaturan tingkat kesulitan tersendiri.
+- Kisi-kisi soal tersendiri.
+- Bank soal yang dapat difilter berdasarkan jenjang.
+- Analisis hasil berdasarkan kompetensi jenjang tersebut.
+
+Dilarang menggunakan indikator SD secara otomatis sebagai pengganti indikator SMP atau SMA.
+
+Dilarang mengubah soal SD menjadi soal SMA hanya dengan memperpanjang bacaan atau mengganti kosakata.
+
+Jika pengguna berpindah jenjang, sistem wajib memperbarui pilihan kompetensi, indikator, jenis stimulus, dan aturan pembuatan soal sesuai jenjang yang dipilih.
+
+---
+
+# BAGIAN 4. KOMPETENSI UMUM LITERASI MEMBACA
+
+Ketiga jenjang menggunakan tiga kelompok kompetensi utama sebagai kerangka konseptual.
+
+## 1. Pemahaman Tekstual
+
+Kemampuan memahami informasi yang dinyatakan secara eksplisit dalam teks, termasuk mengidentifikasi, mengelompokkan, menyusun ulang, dan menyajikan kembali informasi.
+
+## 2. Pemahaman Inferensial
+
+Kemampuan menemukan makna tersirat, menghubungkan informasi, menarik kesimpulan, memahami hubungan antargagasan, serta memprediksi berdasarkan bukti dalam teks.
+
+## 3. Evaluasi dan Apresiasi
+
+Kemampuan menilai ide, fakta, opini, informasi, struktur, kebahasaan, dan relevansi teks, serta menanggapi karya secara emosional dan estetis.
+
+Ketiga kompetensi tersebut merupakan kerangka utama. Indikator operasionalnya wajib mengikuti matriks masing-masing jenjang pada bagian berikut.
+
+---
+
+# BAGIAN 5. MODUL ASESMEN SD/MI
+
+## A. Aspek keterampilan membaca
+
+Aplikasi harus mengukur kemampuan siswa untuk:
+
+1. Mengidentifikasi informasi tersurat dalam teks.
+2. Menyusun ulang, mengelompokkan, membuat ikhtisar, dan menyajikan kembali informasi tersurat.
+3. Mengidentifikasi dan menyimpulkan informasi tersirat.
+4. Menilai gagasan, fakta, atau opini.
+5. Menanggapi isi teks, merefleksikan diri dengan tokoh atau kejadian, dan menanggapi bahasa penulis.
+
+## B. Matriks asesmen SD/MI
+
+### Kompetensi 1: Pemahaman Tekstual
+
+Indikator yang harus tersedia:
+
+SD-T01. Mengidentifikasi penggunaan kosakata umum dan khusus dalam berbagai bidang.
+
+SD-T02. Mengidentifikasi objek berdasarkan kosakata yang digunakan dalam teks fiksi atau nonfiksi.
+
+SD-T03. Menyusun kembali informasi dari teks dalam bentuk ikhtisar atau bagan.
+
+SD-T04. Mengidentifikasi informasi tersurat dalam teks.
+
+Contoh aktivitas soal:
+
+- Menentukan arti kata berdasarkan penggunaannya.
+- Mengidentifikasi objek yang dideskripsikan.
+- Menemukan informasi yang dinyatakan secara langsung.
+- Menentukan informasi penting.
+- Menyusun urutan informasi.
+- Memilih ringkasan yang sesuai dengan bacaan.
+- Memilih bagan yang mewakili isi teks.
+
+### Kompetensi 2: Pemahaman Inferensial
+
+Indikator yang harus tersedia:
+
+SD-I01. Menyimpulkan ide pokok, gagasan pendukung, amanat, tokoh, peristiwa, dan/atau nilai-nilai dalam teks.
+
+SD-I02. Menyimpulkan perubahan sederhana pada objek, karakter, dan/atau latar dalam teks fiksi atau nonfiksi.
+
+SD-I03. Menjelaskan makna ungkapan yang digunakan dalam teks.
+
+Contoh aktivitas soal:
+
+- Menentukan ide pokok berdasarkan beberapa informasi.
+- Menyimpulkan amanat cerita.
+- Menyimpulkan sifat tokoh melalui tindakan dan dialog.
+- Menentukan alasan yang paling masuk akal.
+- Menyimpulkan perubahan karakter atau keadaan.
+- Menentukan makna ungkapan berdasarkan konteks.
+- Menghubungkan sebab dan akibat.
+
+### Kompetensi 3: Evaluasi dan Apresiasi
+
+Indikator yang harus tersedia:
+
+SD-E01. Menilai relevansi peristiwa dalam teks dengan kehidupan sehari-hari berdasarkan pengalaman atau pengetahuan pribadi.
+
+SD-E02. Menilai kesesuaian antarunsur dan/atau antarinformasi dalam teks.
+
+SD-E03. Menyimpulkan respons emosional terhadap unsur teks fiksi.
+
+Contoh aktivitas soal:
+
+- Menilai kesesuaian tindakan tokoh dengan situasi.
+- Menentukan hubungan yang tidak sesuai antarinformasi.
+- Menilai konsistensi unsur cerita.
+- Menentukan perasaan yang mungkin timbul akibat suatu peristiwa.
+- Menilai kesesuaian judul dengan isi.
+- Menghubungkan nilai cerita dengan kehidupan sehari-hari.
+
+## C. Aturan pengembangan soal SD/MI
+
+Gunakan bahasa yang sesuai dengan perkembangan siswa.
+
+Stimulus dapat berbentuk cerita anak, fabel, teks informasi, deskripsi, prosedur, pengumuman, tabel, jadwal, dan teks praktis lainnya.
+
+Gunakan konteks yang dekat dengan kehidupan siswa, seperti sekolah, keluarga, persahabatan, lingkungan, kesehatan, budaya, dan kehidupan masyarakat.
+
+Untuk soal inferensial, pastikan kesimpulan mempunyai bukti dalam teks.
+
+Untuk soal evaluasi, pastikan kriteria penilaian jelas. Jika pertanyaan menyangkut pengalaman pribadi, jawaban tidak boleh dinilai berdasarkan preferensi pribadi yang tidak dapat diverifikasi. Gunakan pertanyaan yang memiliki dasar penalaran atau bukti tekstual yang dapat dipertanggungjawabkan.
+
+---
+
+# BAGIAN 6. MODUL ASESMEN SMP/MTs
+
+## A. Aspek keterampilan membaca
+
+Aplikasi harus mengukur kemampuan siswa untuk:
+
+1. Mengidentifikasi informasi tersurat dalam teks.
+2. Menyusun ulang, mengelompokkan, membuat ikhtisar, dan menyajikan kembali informasi tersurat.
+3. Mengidentifikasi dan menyimpulkan informasi tersirat.
+4. Menilai gagasan, fakta, atau opini.
+5. Menanggapi isi teks, merefleksikan diri dengan tokoh atau kejadian, dan menanggapi bahasa penulis.
+
+## B. Matriks asesmen SMP/MTs
+
+### Kompetensi 1: Pemahaman Tekstual
+
+Indikator yang harus tersedia:
+
+SMP-T01. Mengidentifikasi penggunaan istilah dalam berbagai bidang.
+
+SMP-T02. Mengidentifikasi objek dan/atau latar berdasarkan kosakata yang digunakan dalam teks fiksi atau nonfiksi.
+
+SMP-T03. Mengidentifikasi informasi penting yang tersurat dalam teks.
+
+SMP-T04. Menyusun kerangka atau bagan berdasarkan bagian-bagian penting dalam teks.
+
+Contoh aktivitas soal:
+
+- Menentukan arti istilah sesuai konteks.
+- Mengidentifikasi objek atau latar berdasarkan deskripsi.
+- Menemukan informasi penting.
+- Memilih pernyataan yang sesuai dengan isi bacaan.
+- Menentukan struktur informasi.
+- Menyusun kerangka teks.
+- Memilih bagan yang tepat untuk mewakili hubungan antarinformasi.
+
+### Kompetensi 2: Pemahaman Inferensial
+
+Indikator yang harus tersedia:
+
+SMP-I01. Menyimpulkan ide pokok, gagasan pendukung, tokoh, peristiwa, latar, dan/atau nilai-nilai dalam dan/atau antarteks.
+
+SMP-I02. Menjelaskan kelogisan hubungan antarperistiwa, antargagasan, dan/atau antarinformasi dalam dan/atau antarteks.
+
+SMP-I03. Memprediksi peristiwa dalam teks.
+
+SMP-I04. Menjelaskan bahasa kias dan citraan yang digunakan dalam teks fiksi.
+
+Contoh aktivitas soal:
+
+- Menyimpulkan gagasan utama.
+- Mengidentifikasi nilai yang tersirat.
+- Membandingkan kesimpulan dari dua teks.
+- Menilai hubungan sebab-akibat berdasarkan logika teks.
+- Menjelaskan hubungan antarperistiwa.
+- Memprediksi kelanjutan cerita.
+- Mengidentifikasi makna metafora atau personifikasi.
+- Menjelaskan citraan visual, auditif, atau bentuk citraan lain yang relevan.
+
+### Kompetensi 3: Evaluasi dan Apresiasi
+
+Indikator yang harus tersedia:
+
+SMP-E01. Menilai relevansi peristiwa dalam teks dengan kehidupan sehari-hari.
+
+SMP-E02. Menilai kesesuaian dan/atau keakuratan unsur, kebahasaan, atau isi berdasarkan perbandingan informasi dalam dan/atau antarteks.
+
+SMP-E03. Menyimpulkan respons emosional terhadap unsur teks fiksi.
+
+Contoh aktivitas soal:
+
+- Menilai relevansi gagasan dengan situasi nyata.
+- Membandingkan informasi dari dua teks.
+- Menentukan pernyataan yang paling didukung oleh bukti.
+- Menilai konsistensi informasi.
+- Menilai ketepatan pilihan kata.
+- Menentukan pengaruh suatu bagian cerita terhadap emosi pembaca.
+- Menilai kesesuaian unsur cerita.
+
+## C. Aturan pengembangan soal SMP/MTs
+
+Gunakan stimulus dengan kompleksitas menengah hingga tinggi sesuai kelas sasaran.
+
+Gunakan variasi teks fiksi dan nonfiksi, termasuk teks yang memerlukan hubungan informasi antarkalimat atau antarparagraf.
+
+Sediakan soal yang menuntut penalaran, bukan hanya pencarian kata yang sama antara pertanyaan dan bacaan.
+
+Untuk indikator antarteks, sediakan minimal dua stimulus yang saling berkaitan.
+
+Untuk indikator kelogisan, pastikan hubungan antarperistiwa atau antargagasan dapat dianalisis berdasarkan informasi yang tersedia.
+
+Untuk indikator bahasa kias dan citraan, gunakan contoh yang jelas dan kontekstual.
+
+Jangan menggunakan istilah sastra yang terlalu kompleks tanpa mempertimbangkan kelas sasaran dan tujuan asesmen.
+
+---
+
+# BAGIAN 7. MODUL ASESMEN SMA/SEDERAJAT
+
+## A. Karakteristik keterampilan membaca
+
+Pada jenjang SMA/sederajat, keterampilan membaca diujikan melalui dua kelompok teks utama:
+
+1. Teks informasi tunggal maupun jamak.
+2. Teks fiksi.
+
+### Teks informasi
+
+Teks informasi dapat berisi fakta, konsep, prosedur, dan metakognisi dari berbagai bidang atau topik, genre, serta konteks lokal, nasional, dan global.
+
+Teks informasi dapat terdiri atas satu teks atau beberapa teks yang saling berkaitan.
+
+### Teks fiksi
+
+Teks fiksi dapat berupa realisme atau absurd dengan karakteristik:
+
+- Latar cerita konkret atau abstrak.
+- Tokoh dengan karakter bulat.
+- Konflik tunggal atau jamak.
+- Penyelesaian terbuka.
+- Alur campuran.
+- Sudut pandang campuran.
+
+Karakteristik tersebut merupakan kemungkinan bentuk teks, bukan kewajiban untuk memasukkan seluruh unsur dalam setiap stimulus.
+
+## B. Karakteristik kosakata, kalimat, dan wacana SMA
+
+### 1. Kosakata
+
+Stimulus perlu memuat kosakata yang sesuai dengan spesifikasi asesmen, antara lain:
+
+- Kata umum dan kata khusus.
+- Kata berimbuhan kompleks.
+- Kata abstrak.
+- Makna denotatif.
+- Istilah teknis.
+- Makna konotatif berdasarkan konteks yang lebih luas.
+- Kata serapan dari bahasa daerah atau bahasa asing jika relevan.
+
+Penggunaan kosakata harus alami dan mendukung isi bacaan.
+
+Jangan memasukkan istilah sulit secara acak hanya untuk membuat soal terlihat lebih akademis.
+
+### 2. Kalimat
+
+Perhatikan karakteristik berikut:
+
+- Kalimat kompleks dengan beragam pola.
+- Kalimat inversi.
+- Hubungan antarklausa yang logis.
+- Struktur kalimat yang bervariasi.
+
+Spesifikasi yang diberikan menyebutkan 8–12 kata per kalimat. Perlakukan ketentuan tersebut sebagai sasaran karakteristik yang harus diperhatikan ketika menyusun teks, bukan alasan untuk membuat seluruh kalimat seragam atau tidak alami.
+
+Lakukan penghitungan kata secara otomatis jika memungkinkan. Laporkan penyimpangan secara internal untuk ditinjau, terutama ketika kalimat kompleks secara wajar membutuhkan struktur yang lebih panjang.
+
+### 3. Wacana
+
+Perhatikan penggunaan:
+
+- Konjungsi antarkalimat dan antarparagraf.
+- Hubungan pertentangan.
+- Hubungan sebab-akibat.
+- Tanda baca yang mendukung makna.
+- Ungkapan bermakna denotatif atau konotatif.
+- Kohesi dan koherensi antargagasan.
+
+### 4. Panjang teks
+
+Untuk teks informasi dan prosa fiksi SMA, target panjang stimulus adalah 250–300 kata sesuai ketentuan yang diberikan.
+
+Teks puisi dikecualikan dari ketentuan panjang tersebut.
+
+Untuk teks jamak, tampilkan jumlah kata setiap teks secara terpisah dan jumlah kata keseluruhan. Jangan menganggap jumlah keseluruhan sebagai panjang satu teks.
+
+Hitung jumlah kata berdasarkan pemisahan kata yang konsisten, bukan berdasarkan perkiraan visual.
+
+Jika teks berada di luar rentang target, tampilkan status validasi dan alasan penyimpangannya. Jangan menyatakan bahwa teks sudah sesuai jika jumlah katanya belum diperiksa.
+
+## C. Matriks asesmen SMA/sederajat
+
+### Kompetensi 1: Pemahaman Tekstual
+
+Indikator yang harus tersedia:
+
+SMA-T01. Mengidentifikasi penggunaan kata serapan dari bahasa daerah atau bahasa asing dalam berbagai bidang.
+
+SMA-T02. Mengidentifikasi latar, karakter, dan/atau fenomena berdasarkan kosakata yang digunakan dalam teks fiksi atau nonfiksi.
+
+SMA-T03. Menyusun kerangka atau bagan berdasarkan bagian-bagian penting dalam teks.
+
+Contoh aktivitas soal:
+
+- Mengidentifikasi kata serapan dalam konteks.
+- Menentukan makna kata serapan berdasarkan penggunaannya.
+- Mengidentifikasi fenomena yang dijelaskan dalam teks.
+- Menentukan karakter tokoh berdasarkan deskripsi.
+- Menentukan latar berdasarkan petunjuk kebahasaan.
+- Memilih kerangka yang sesuai dengan struktur informasi.
+- Menyusun bagan berdasarkan hubungan informasi dalam teks.
+
+### Kompetensi 2: Pemahaman Inferensial
+
+Indikator yang harus tersedia:
+
+SMA-I01. Menyimpulkan ide pokok, gagasan pendukung, tokoh, peristiwa, latar, konflik, atau nilai-nilai dalam teks.
+
+SMA-I02. Menjelaskan hubungan makna antarkalimat dan/atau antarparagraf dalam teks.
+
+SMA-I03. Memprediksi lanjutan atau akhir uraian/cerita berdasarkan bagian tertentu dalam teks.
+
+Contoh aktivitas soal:
+
+- Menyimpulkan gagasan utama.
+- Menentukan fungsi paragraf dalam keseluruhan teks.
+- Menyimpulkan konflik dan motivasi tokoh.
+- Menemukan nilai yang tersirat.
+- Menjelaskan hubungan pertentangan antargagasan.
+- Menentukan hubungan sebab-akibat.
+- Menyimpulkan makna yang muncul dari hubungan beberapa paragraf.
+- Memprediksi kelanjutan cerita berdasarkan petunjuk yang tersedia.
+
+### Kompetensi 3: Evaluasi dan Apresiasi
+
+Indikator yang harus tersedia:
+
+SMA-E01. Menilai relevansi peristiwa dalam teks dengan kehidupan sehari-hari.
+
+SMA-E02. Menilai keakuratan, kesesuaian, kecukupan, atau ketepatan informasi dalam teks.
+
+SMA-E03. Menilai ketepatan dan kesesuaian penggunaan bahasa dalam teks.
+
+SMA-E04. Menilai ketepatan bagian teks untuk menggambarkan karakter, peristiwa, atau latar dalam teks fiksi.
+
+SMA-E05. Menyimpulkan respons emosional terhadap unsur puisi, prosa, dan drama.
+
+Contoh aktivitas soal:
+
+- Menilai relevansi gagasan dengan permasalahan kontemporer.
+- Memeriksa kecukupan bukti untuk mendukung kesimpulan.
+- Menilai ketepatan informasi berdasarkan teks pembanding.
+- Menentukan informasi yang membutuhkan verifikasi.
+- Menilai penggunaan diksi dan gaya bahasa.
+- Menentukan bagian narasi yang paling kuat menggambarkan karakter tokoh.
+- Menilai efektivitas penggambaran latar atau konflik.
+- Menyimpulkan respons emosional yang dibangun puisi.
+- Menganalisis efek dialog atau adegan dalam drama.
+- Menilai hubungan antara pilihan bahasa dan tujuan penulis.
+
+## D. Teks informasi jamak
+
+Untuk soal yang mengukur pemahaman antarteks, sistem harus dapat membuat atau mengelola dua atau lebih teks yang saling berkaitan.
+
+Contoh:
+- Dua artikel tentang isu lingkungan.
+- Artikel dan laporan hasil penelitian.
+- Teks informasi dan tabel data.
+- Dua pendapat yang membahas persoalan yang sama.
+- Teks utama dan kutipan dokumen pendukung.
+
+Pertanyaan dapat mengukur kemampuan membandingkan informasi, mengidentifikasi perbedaan sudut pandang, menilai kecukupan bukti, dan menyimpulkan hubungan antarteks.
+
+Jangan mengarang data penelitian atau menyajikan informasi fiktif seolah-olah merupakan fakta dari sumber nyata.
+
+Jika stimulus menggunakan data buatan untuk keperluan latihan, beri label sebagai data simulasi.
+
+## E. Teks fiksi SMA
+
+Gunakan variasi:
+
+- Cerpen.
+- Prosa naratif.
+- Puisi.
+- Drama atau dialog dramatik.
+- Fiksi realis.
+- Fiksi dengan unsur absurd.
+- Cerita dengan konflik tunggal atau jamak.
+- Narasi dengan alur campuran.
+- Narasi dengan sudut pandang bervariasi.
+- Cerita dengan penyelesaian terbuka.
+
+Pertanyaan harus mengacu pada bukti tekstual.
+
+Jangan menganggap satu interpretasi sebagai satu-satunya jawaban apabila teks memang mendukung beberapa penafsiran yang sama kuat.
+
+Untuk soal pilihan ganda, gunakan pertanyaan yang memungkinkan satu jawaban terbaik berdasarkan petunjuk dan kriteria yang jelas.
+
+---
+
+# BAGIAN 8. MESIN GENERATOR SOAL AI
+
+Buat modul utama bernama GENERATOR SOAL AI.
+
+## A. Formulir konfigurasi
+
+Pengguna dapat menentukan:
+
+1. Jenjang pendidikan.
+2. Kelas.
+3. Kompetensi.
+4. Indikator asesmen.
+5. Jenis teks.
+6. Topik atau tema.
+7. Jumlah stimulus.
+8. Jumlah soal.
+9. Tingkat kesulitan.
+10. Bentuk soal.
+11. Mode latihan atau simulasi.
+12. Panjang stimulus.
+13. Penggunaan satu atau beberapa teks.
+14. Komposisi kompetensi.
+15. Waktu pengerjaan.
+16. Sumber stimulus jika menggunakan teks yang disediakan pengguna.
+
+Pilihan tersebut harus bersifat dinamis.
+
+Jika pengguna memilih SD, tampilkan indikator SD.
+
+Jika pengguna memilih SMP, tampilkan indikator SMP.
+
+Jika pengguna memilih SMA, tampilkan indikator SMA.
+
+Indikator dari jenjang lain tidak boleh tercampur secara otomatis.
+
+## B. Pilihan jenis teks
+
+Untuk SD:
+- Cerita anak.
+- Fabel.
+- Cerita rakyat.
+- Teks informasi.
+- Teks deskripsi.
+- Teks prosedur.
+- Pengumuman.
+- Poster.
+- Jadwal.
+- Tabel.
+
+Untuk SMP:
+- Cerita pendek.
+- Fabel.
+- Cerita realistis.
+- Artikel informasi.
+- Teks eksplanasi.
+- Teks prosedur.
+- Deskripsi.
+- Laporan.
+- Teks sastra.
+- Tabel dan informasi multimodal.
+
+Untuk SMA:
+- Teks informasi tunggal.
+- Teks informasi jamak.
+- Artikel argumentatif.
+- Teks ilmiah populer.
+- Teks eksplanatif.
+- Teks prosedural.
+- Prosa fiksi.
+- Puisi.
+- Drama.
+- Teks dengan kombinasi informasi dan data.
+
+## C. Pilihan tingkat kesulitan
+
+### Mudah
+
+- Informasi relatif langsung.
+- Hubungan antarinformasi sederhana.
+- Kosakata sesuai jenjang.
+- Penalaran tidak memerlukan banyak langkah.
+
+### Sedang
+
+- Membutuhkan penggabungan beberapa informasi.
+- Memerlukan penafsiran konteks.
+- Menggunakan hubungan antarkalimat atau antarparagraf.
+- Memerlukan alasan yang jelas.
+
+### Sulit
+
+- Membutuhkan analisis beberapa petunjuk.
+- Mengintegrasikan informasi dari bagian atau teks berbeda.
+- Menilai ketepatan informasi berdasarkan bukti.
+- Menafsirkan hubungan yang kompleks.
+- Mengevaluasi gagasan atau penggunaan bahasa.
+
+Tingkat kesulitan harus ditentukan berdasarkan tuntutan kognitif dan kualitas distraktor, bukan hanya panjang bacaan.
+
+## D. Bentuk soal
+
+Sediakan konfigurasi berikut:
+
+1. Pilihan ganda satu jawaban benar.
+2. Pilihan ganda kompleks.
+3. Benar atau salah.
+4. Menjodohkan.
+5. Isian singkat.
+6. Uraian.
+
+Pilihan bentuk soal harus dapat diatur administrator berdasarkan format latihan yang diperlukan.
+
+Jangan mengklaim semua bentuk tersebut merupakan format resmi TKA. Jika pengguna memilih mode simulasi format tertentu, gunakan hanya bentuk soal yang sesuai dengan spesifikasi yang telah diverifikasi.
+
+## E. Alur pembuatan soal
+
+Ikuti proses berikut secara berurutan:
+
+Tahap 1: Membaca konfigurasi pengguna.
+
+Tahap 2: Memuat kompetensi dan indikator sesuai jenjang.
+
+Tahap 3: Menentukan stimulus sesuai spesifikasi.
+
+Tahap 4: Memeriksa karakteristik stimulus.
+
+Tahap 5: Membuat kisi-kisi berdasarkan jumlah soal.
+
+Tahap 6: Menghasilkan pertanyaan dan pilihan jawaban.
+
+Tahap 7: Membuat kunci jawaban.
+
+Tahap 8: Membuat pembahasan dan bukti tekstual.
+
+Tahap 9: Memvalidasi soal, kunci, distraktor, dan pembahasan.
+
+Tahap 10: Memeriksa kesesuaian jumlah soal.
+
+Tahap 11: Menampilkan hasil untuk ditinjau.
+
+Tahap 12: Menyimpan soal yang telah disetujui ke bank soal.
+
+Jika terjadi kegagalan pada salah satu tahap, tampilkan status kegagalan dan sediakan tindakan perbaikan.
+
+Jangan menampilkan soal yang belum selesai dibuat seolah-olah seluruh paket telah lengkap.
+
+---
+
+# BAGIAN 9. STANDAR KUALITAS SOAL
+
+Terapkan validasi otomatis pada setiap soal.
+
+## 1. Validasi kompetensi
+
+Periksa apakah pertanyaan mengukur indikator yang dipilih.
+
+Contoh: soal yang mengukur pemahaman inferensial tidak boleh hanya menanyakan informasi yang disebutkan secara langsung.
+
+## 2. Validasi stimulus
+
+Pastikan stimulus:
+- Sesuai dengan jenjang.
+- Sesuai dengan jenis teks.
+- Relevan dengan indikator.
+- Memiliki informasi yang cukup.
+- Tidak mengandung kontradiksi yang tidak disengaja.
+- Tidak menyesatkan siswa.
+- Memiliki jumlah kata sesuai ketentuan jika ada batas panjang.
+
+## 3. Validasi kunci jawaban
+
+Periksa apakah jawaban benar dapat dibuktikan melalui stimulus.
+
+Untuk setiap soal pilihan ganda, tentukan alasan mengapa kunci paling tepat.
+
+## 4. Validasi distraktor
+
+Distraktor harus:
+- Relevan dengan pertanyaan.
+- Masuk akal.
+- Berbeda secara bermakna dari kunci.
+- Tidak tumpang tindih dengan kunci.
+- Tidak menimbulkan lebih dari satu jawaban terbaik.
+
+Hindari distraktor yang terlalu absurd atau mudah dieliminasi.
+
+## 5. Validasi bahasa
+
+Periksa:
+- Ejaan.
+- Tanda baca.
+- Kejelasan kalimat.
+- Kesesuaian kosakata dengan usia.
+- Kejelasan instruksi.
+- Potensi ambiguitas.
+
+## 6. Validasi pembahasan
+
+Pembahasan harus menjelaskan:
+- Mengapa jawaban benar.
+- Bukti yang mendukung.
+- Mengapa pilihan lain tidak tepat, jika diperlukan.
+- Kompetensi yang diukur.
+
+## 7. Validasi keunikan
+
+Periksa apakah beberapa soal dalam paket mengulang pertanyaan yang sama.
+
+Jika satu stimulus digunakan untuk beberapa soal, setiap pertanyaan harus memiliki tujuan pengukuran yang jelas.
+
+## 8. Status validasi
+
+Gunakan status:
+- Draf.
+- Perlu Ditinjau.
+- Lolos Validasi Otomatis.
+- Disetujui Guru.
+- Ditolak atau Perlu Revisi.
+
+Jangan menyamakan lolos validasi AI dengan validitas psikometrik yang telah dibuktikan melalui uji coba empiris.
+
+---
+
+# BAGIAN 10. KISI-KISI SOAL OTOMATIS
+
+Setiap paket soal harus memiliki kisi-kisi yang dapat dilihat dan diedit sebelum digunakan.
+
+Kisi-kisi minimal berisi:
+
+1. Nomor soal.
+2. Jenjang.
+3. Kelas.
+4. Kompetensi.
+5. Kode indikator.
+6. Rumusan indikator.
+7. Jenis stimulus.
+8. Topik.
+9. Tingkat kesulitan.
+10. Bentuk soal.
+11. Nomor stimulus.
+12. Bobot soal.
+
+Sediakan fitur:
+- Pratinjau kisi-kisi.
+- Edit kisi-kisi.
+- Regenerasi soal berdasarkan kisi-kisi.
+- Ekspor kisi-kisi.
+- Penyimpanan kisi-kisi ke bank soal.
+
+Pastikan setiap soal mempunyai keterkaitan yang jelas dengan indikatornya.
+
+Jika pengguna meminta 30 soal, distribusi soal harus mengikuti alokasi yang ditentukan.
+
+Jika pengguna belum menentukan distribusi, aplikasi dapat menawarkan distribusi seimbang berdasarkan kompetensi yang dipilih, dengan opsi untuk mengubahnya.
+
+Jangan menyatakan bahwa distribusi otomatis merupakan komposisi resmi TKA apabila belum diverifikasi.
+
+---
+
+# BAGIAN 11. SISTEM PEMBAHASAN
+
+Setiap soal harus mempunyai pembahasan yang mendidik.
+
+Untuk soal pilihan ganda, tampilkan:
+
+- Kunci jawaban.
+- Alasan jawaban benar.
+- Bukti dalam teks.
+- Penjelasan mengapa distraktor tidak tepat, jika diperlukan.
+- Kompetensi dan indikator yang diukur.
+
+Untuk soal inferensial, jelaskan proses penalaran yang menghubungkan bukti tekstual dengan kesimpulan.
+
+Untuk soal evaluasi, jelaskan kriteria penilaian dan bukti yang mendukung jawaban.
+
+Untuk soal sastra, jelaskan interpretasi berdasarkan unsur teks, bukan hanya berdasarkan opini yang tidak mempunyai dasar.
+
+Pembahasan harus sesuai dengan stimulus yang benar-benar digunakan.
+
+Jika stimulus berubah, sistem harus memvalidasi ulang pembahasan dan kunci jawaban.
+
+---
+
+# BAGIAN 12. MODE LATIHAN
+
+Buat mode latihan interaktif untuk siswa.
+
+Fitur:
+- Membaca stimulus.
+- Menjawab soal.
+- Menandai soal.
+- Navigasi antarsoal.
+- Melihat progres pengerjaan.
+- Menyimpan jawaban sementara.
+- Memeriksa jawaban jika mode belajar diaktifkan.
+- Membaca pembahasan.
+- Mengulang soal.
+- Melihat hasil akhir.
+
+Mode belajar dapat memberikan umpan balik setelah siswa menjawab.
+
+Mode ujian harus menyembunyikan kunci dan pembahasan sampai pengerjaan selesai.
+
+Sediakan tampilan yang nyaman untuk membaca teks panjang, terutama pada jenjang SMA.
+
+Untuk teks jamak, tampilkan semua stimulus terkait dengan navigasi yang jelas agar siswa dapat membandingkan informasi.
+
+---
+
+# BAGIAN 13. MODE SIMULASI TKA
+
+Buat menu SIMULASI TKA.
+
+Pengaturan:
+- Jenjang.
+- Kelas.
+- Paket soal.
+- Jumlah soal.
+- Kompetensi yang diuji.
+- Durasi.
+- Tingkat kesulitan.
+- Pengacakan soal.
+- Pengacakan pilihan jawaban.
+- Petunjuk pengerjaan.
+
+Alur simulasi:
+
+1. Siswa memilih paket.
+2. Sistem menampilkan aturan.
+3. Siswa memulai ujian.
+4. Timer berjalan.
+5. Jawaban disimpan berkala.
+6. Siswa dapat berpindah soal.
+7. Sistem menampilkan indikator progres.
+8. Sistem memberi peringatan waktu sesuai konfigurasi.
+9. Siswa menyelesaikan simulasi.
+10. Sistem menghitung hasil.
+11. Sistem menampilkan laporan dan pembahasan sesuai pengaturan.
+
+Jika waktu habis, sistem harus menjalankan prosedur penyelesaian yang telah ditentukan.
+
+Cegah pengiriman jawaban ganda akibat pengguna menekan tombol berkali-kali.
+
+Sediakan konfirmasi sebelum mengakhiri ujian secara manual.
+
+Tampilkan keterangan bahwa simulasi adalah latihan mandiri dan bukan penyelenggaraan TKA resmi.
+
+---
+
+# BAGIAN 14. SISTEM PENILAIAN
+
+Untuk soal dengan satu jawaban benar, gunakan aturan default:
+
+- Benar: memperoleh bobot penuh.
+- Salah: memperoleh nol.
+- Tidak dijawab: memperoleh nol.
+
+Rumus:
+
+Nilai = (Total skor diperoleh / Total skor maksimum) × 100.
+
+Untuk bentuk soal lain, sediakan aturan penilaian yang dapat dikonfigurasi.
+
+Untuk pilihan ganda kompleks, tetapkan aturan penskoran sebelum latihan dimulai. Jangan mengubah aturan setelah siswa mengerjakan.
+
+Untuk uraian, gunakan rubrik yang dapat diperiksa dan diedit oleh guru.
+
+Jika AI membantu menilai uraian:
+- Tampilkan skor berdasarkan rubrik.
+- Tampilkan alasan penilaian.
+- Simpan jawaban asli siswa.
+- Sediakan pemeriksaan manual.
+- Jangan menganggap kesamaan kata sebagai satu-satunya ukuran kebenaran.
+
+Pastikan seluruh perhitungan dapat diuji dan direproduksi.
+
+---
+
+# BAGIAN 15. ANALISIS KEMAMPUAN SISWA
+
+Setelah latihan selesai, tampilkan:
+
+1. Nama atau ID siswa sesuai pengaturan akun.
+2. Jenjang dan kelas.
+3. Nama paket.
+4. Jumlah soal.
+5. Jawaban benar.
+6. Jawaban salah.
+7. Soal tidak dijawab.
+8. Nilai akhir.
+9. Durasi pengerjaan.
+10. Capaian setiap kompetensi.
+11. Indikator yang sudah dikuasai.
+12. Indikator yang perlu diperkuat.
+13. Rekomendasi latihan selanjutnya.
+
+Analisis kompetensi:
+
+SD/MI:
+- Pemahaman Tekstual.
+- Pemahaman Inferensial.
+- Evaluasi dan Apresiasi.
+
+SMP/MTs:
+- Pemahaman Tekstual.
+- Pemahaman Inferensial.
+- Evaluasi dan Apresiasi.
+
+SMA/sederajat:
+- Pemahaman Tekstual.
+- Pemahaman Inferensial.
+- Evaluasi dan Apresiasi.
+
+Untuk setiap kompetensi, hitung jumlah soal yang dijawab benar dibandingkan dengan jumlah soal yang benar-benar mengukur kompetensi tersebut.
+
+Jika jumlah soal terlalu sedikit, berikan peringatan bahwa hasil belum cukup untuk menyimpulkan kemampuan secara stabil.
+
+Jangan menyamakan persentase benar dengan ukuran kemampuan psikometrik yang tervalidasi.
+
+Gunakan kategori deskriptif yang dapat dikonfigurasi. Jangan menyebutnya kategori resmi TKA tanpa dasar resmi.
+
+Contoh rekomendasi:
+
+"Anda sudah cukup baik dalam menemukan informasi tersurat. Tingkatkan latihan dalam menghubungkan informasi dari beberapa paragraf agar lebih terampil menyimpulkan gagasan."
+
+Rekomendasi harus didasarkan pada data jawaban aktual.
+
+---
+
+# BAGIAN 16. DASHBOARD GURU
+
+Buat dashboard guru dengan menu:
+
+1. Ringkasan aktivitas.
+2. Generator soal.
+3. Kisi-kisi.
+4. Bank soal.
+5. Paket latihan.
+6. Simulasi.
+7. Daftar siswa jika menggunakan sistem akun.
+8. Hasil latihan.
+9. Analisis kompetensi.
+10. Ekspor laporan.
+11. Pengaturan.
+
+Guru dapat:
+- Membuat paket soal.
+- Mengedit stimulus.
+- Mengedit pertanyaan.
+- Mengubah pilihan jawaban.
+- Memeriksa kunci.
+- Memvalidasi pembahasan.
+- Menyetujui atau menolak soal.
+- Membuat paket latihan.
+- Mengatur durasi.
+- Membagikan tugas.
+- Melihat hasil pengerjaan.
+- Mengidentifikasi indikator yang sulit bagi siswa.
+- Mengunduh laporan.
+
+Sediakan filter berdasarkan:
+- Jenjang.
+- Kelas.
+- Paket.
+- Kompetensi.
+- Indikator.
+- Tanggal pengerjaan.
+
+Data hasil harus berasal dari penyimpanan yang nyata. Jangan membuat angka atau grafik contoh seolah-olah merupakan data siswa sesungguhnya.
+
+---
+
+# BAGIAN 17. BANK SOAL DAN MANAJEMEN STIMULUS
+
+Buat bank soal dengan metadata:
+
+- ID soal.
+- Jenjang.
+- Kelas.
+- Kompetensi.
+- Indikator.
+- Jenis stimulus.
+- Topik.
+- Tingkat kesulitan.
+- Bentuk soal.
+- Status validasi.
+- Tanggal dibuat.
+- Versi soal.
+
+Buat bank stimulus yang terpisah.
+
+Metadata stimulus:
+- ID stimulus.
+- Jenjang sasaran.
+- Kelas sasaran.
+- Jenis teks.
+- Topik.
+- Isi teks.
+- Jumlah kata.
+- Status validasi.
+- Sumber atau status kepengarangan.
+- Daftar soal yang menggunakan stimulus.
+
+Fitur bank soal:
+- Tambah.
+- Edit.
+- Hapus.
+- Duplikasi.
+- Pencarian.
+- Filter.
+- Impor.
+- Ekspor.
+- Membuat paket.
+- Menyimpan versi.
+
+Jika satu stimulus digunakan dalam beberapa soal, perubahan stimulus harus memicu pemeriksaan ulang seluruh soal yang terkait.
+
+Untuk soal yang telah digunakan, pertahankan salinan versi soal dan stimulus yang digunakan saat pengerjaan jika sistem penyimpanan mendukungnya.
+
+---
+
+# BAGIAN 18. FITUR IMPOR DAN EKSPOR
+
+Sediakan fungsi ekspor ke format yang mudah digunakan guru.
+
+Format yang dapat didukung:
+- PDF.
+- DOCX.
+- XLSX.
+- CSV.
+- JSON.
+
+Kebutuhan ekspor:
+
+PDF:
+- Paket soal.
+- Lembar jawaban.
+- Kisi-kisi.
+- Pembahasan.
+- Laporan hasil.
+
+DOCX:
+- Naskah soal.
+- Kisi-kisi.
+- Kunci jawaban terpisah.
+- Pembahasan.
+- Laporan guru.
+
+XLSX:
+- Kisi-kisi.
+- Bank soal.
+- Rekap hasil siswa.
+- Analisis kompetensi.
+
+CSV dan JSON:
+- Pertukaran data terstruktur.
+
+Sediakan pilihan ekspor:
+1. Naskah soal tanpa kunci.
+2. Kunci jawaban.
+3. Pembahasan.
+4. Kisi-kisi.
+5. Paket lengkap untuk guru.
+
+Untuk ujian, kunci jawaban harus disimpan dan diekspor secara terpisah dari naskah siswa.
+
+Jika fitur ekspor belum diimplementasikan, jangan menampilkan tombol aktif yang tidak bekerja.
+
+---
+
+# BAGIAN 19. DESAIN UI/UX
+
+Gunakan desain platform edutech premium.
+
+Karakter desain:
+- Modern.
+- Bersih.
+- Profesional.
+- Responsif.
+- Mudah dipahami.
+- Nyaman untuk membaca.
+- Cocok untuk anak dan remaja.
+
+Gunakan tipografi yang jelas, jarak antarelemen yang cukup, kontras warna yang memadai, dan navigasi sederhana.
+
+Buat halaman:
+
+1. Landing page.
+2. Login jika autentikasi diterapkan.
+3. Dashboard.
+4. Pemilihan jenjang.
+5. Pemilihan kelas.
+6. Pemilihan kompetensi.
+7. Generator soal.
+8. Pratinjau stimulus.
+9. Pratinjau soal.
+10. Validasi soal.
+11. Mode latihan.
+12. Mode simulasi.
+13. Hasil latihan.
+14. Analisis kemampuan.
+15. Bank soal.
+16. Dashboard guru.
+17. Pengaturan.
+
+## Landing page
+
+Tampilkan:
+- Logo.
+- Nama aplikasi.
+- Tagline.
+- Penjelasan manfaat.
+- Kartu SD/MI.
+- Kartu SMP/MTs.
+- Kartu SMA/sederajat.
+- Tombol mulai latihan.
+- Tombol simulasi.
+- Fitur unggulan.
+- Penjelasan bahwa aplikasi adalah sarana latihan.
+
+Setiap kartu jenjang harus membuka modul yang sesuai.
+
+## Halaman pengerjaan
+
+Prioritaskan ruang untuk membaca stimulus dan pertanyaan.
+
+Untuk teks panjang, sediakan tata letak yang nyaman dan responsif.
+
+Untuk teks jamak, tampilkan penanda stimulus yang jelas agar siswa mengetahui teks mana yang sedang digunakan.
+
+Jangan mengorbankan keterbacaan demi ornamen visual.
+
+---
+
+# BAGIAN 20. ARSITEKTUR DAN TEKNOLOGI
+
+Bangun menggunakan teknologi yang kompatibel dengan lingkungan pengembangan yang tersedia.
+
+Jika menggunakan Google AI Studio:
+- Gunakan model AI untuk membuat stimulus, soal, pembahasan, dan validasi.
+- Pisahkan logika aplikasi dari instruksi model.
+- Gunakan backend atau layanan penyimpanan jika dibutuhkan.
+- Lindungi kredensial API.
+
+Jika menggunakan Claude:
+- Implementasikan antarmuka dan backend sesuai kemampuan platform yang digunakan.
+- Pisahkan modul generator, penilaian, bank soal, dan laporan.
+- Gunakan integrasi API hanya jika tersedia dan telah dikonfigurasi.
+
+Arsitektur minimal:
+
+1. Frontend.
+2. Modul konfigurasi jenjang.
+3. Mesin generator AI.
+4. Modul validasi soal.
+5. Modul penilaian.
+6. Modul analisis hasil.
+7. Database.
+8. Modul autentikasi jika diperlukan.
+9. Modul ekspor.
+10. Dashboard guru.
+
+Gunakan struktur data konsisten dan skema yang tervalidasi.
+
+Contoh objek soal:
+
+{
+  "id": "SOAL-001",
+  "jenjang": "SMA",
+  "kelas": 10,
+  "kompetensi": "Pemahaman Inferensial",
+  "indikator_id": "SMA-I02",
+  "indikator": "Menjelaskan hubungan makna antarkalimat dan antarparagraf",
+  "jenis_stimulus": "Teks informasi",
+  "stimulus_ids": ["STIM-001"],
+  "tingkat_kesulitan": "Sedang",
+  "bentuk_soal": "Pilihan Ganda",
+  "pertanyaan": "Pertanyaan berdasarkan stimulus",
+  "pilihan": [
+    {"kode": "A", "teks": "Pilihan A"},
+    {"kode": "B", "teks": "Pilihan B"},
+    {"kode": "C", "teks": "Pilihan C"},
+    {"kode": "D", "teks": "Pilihan D"}
+  ],
+  "kunci_jawaban": "B",
+  "pembahasan": "Penjelasan berdasarkan bukti tekstual",
+  "bukti_tekstual": "Bagian teks yang mendukung jawaban",
+  "bobot": 1,
+  "status_validasi": "Perlu Ditinjau",
+  "versi": 1
+}
+
+Skema ini merupakan contoh dan harus dikembangkan sesuai kebutuhan aplikasi.
+
+Jangan menyimpan kunci jawaban pada objek yang dikirim kepada siswa selama ujian berlangsung.
+
+Pisahkan data soal publik, kunci jawaban, dan hasil pengerjaan jika diperlukan untuk menjaga keamanan.
+
+---
+
+# BAGIAN 21. PENGELOLAAN AKUN DAN AKSES
+
+Jika autentikasi tersedia, sediakan peran:
+
+1. Administrator.
+2. Guru.
+3. Siswa.
+
+Administrator:
+- Mengelola konfigurasi.
+- Mengelola kompetensi.
+- Mengelola pengguna.
+- Mengelola bank soal.
+- Mengatur hak akses.
+
+Guru:
+- Membuat dan memvalidasi soal.
+- Membuat paket latihan.
+- Mengelola tugas.
+- Melihat hasil siswa yang berada dalam kewenangannya.
+
+Siswa:
+- Mengikuti latihan.
+- Mengerjakan simulasi.
+- Melihat hasil miliknya.
+- Mengakses pembahasan sesuai aturan.
+
+Jika aplikasi menyediakan mode demo, batasi aksesnya secara jelas. Jangan mengandalkan penyembunyian tombol sebagai satu-satunya mekanisme keamanan.
+
+Terapkan autentikasi dan otorisasi di sisi server jika backend digunakan.
+
+Minimalkan pengumpulan data pribadi anak.
+
+---
+
+# BAGIAN 22. KEAMANAN DAN KEANDALAN
+
+Terapkan:
+- Validasi input.
+- Penanganan kesalahan.
+- Pembatasan akses.
+- Perlindungan kredensial.
+- Penyimpanan data yang aman.
+- Pencegahan pengiriman jawaban ganda.
+- Penyimpanan jawaban secara berkala.
+- Penanganan kegagalan koneksi.
+- Mekanisme pemulihan pengerjaan jika didukung.
+- Penghapusan data sesuai hak akses.
+
+Jika AI gagal menghasilkan soal, tampilkan pesan yang jelas dan sediakan opsi mencoba kembali.
+
+Jangan mengarang data hasil.
+
+Jangan menyatakan data sudah tersimpan permanen jika aplikasi hanya menggunakan penyimpanan sementara di browser.
+
+---
+
+# BAGIAN 23. PENGUJIAN WAJIB
+
+Lakukan pengujian terhadap skenario berikut:
+
+1. Pemilihan jenjang SD.
+2. Pemilihan jenjang SMP.
+3. Pemilihan jenjang SMA.
+4. Perubahan kelas.
+5. Perubahan kompetensi.
+6. Perubahan indikator.
+7. Pembuatan stimulus.
+8. Pemeriksaan panjang teks SMA.
+9. Pembuatan soal berdasarkan stimulus.
+10. Pembuatan soal antarteks.
+11. Validasi kunci jawaban.
+12. Validasi distraktor.
+13. Validasi pembahasan.
+14. Pembuatan kisi-kisi.
+15. Kesesuaian jumlah soal.
+16. Pengacakan soal.
+17. Penilaian otomatis.
+18. Analisis kompetensi.
+19. Penggunaan timer.
+20. Penyimpanan jawaban.
+21. Pemulihan sesi jika didukung.
+22. Ekspor soal.
+23. Ekspor kisi-kisi.
+24. Pemisahan kunci jawaban.
+25. Hak akses pengguna.
+26. Responsivitas antarmuka.
+27. Penanganan kegagalan API.
+28. Penanganan kegagalan database.
+29. Pemeriksaan akses kunci jawaban.
+30. Pemeriksaan kesesuaian seluruh soal dengan jenjang.
+
+Setiap pengujian harus menghasilkan status yang dapat diperiksa.
+
+Jangan mengklaim pengujian berhasil apabila pengujian tersebut belum benar-benar dijalankan.
+
+---
+
+# BAGIAN 24. TAHAPAN IMPLEMENTASI
+
+Bangun aplikasi secara bertahap.
+
+### Tahap 1: Fondasi
+
+- Struktur aplikasi.
+- Navigasi.
+- Identitas visual.
+- Pemilihan jenjang.
+- Pemilihan kelas.
+- Konfigurasi kompetensi.
+
+### Tahap 2: Generator
+
+- Formulir konfigurasi.
+- Generator stimulus.
+- Generator soal.
+- Kisi-kisi.
+- Kunci jawaban.
+- Pembahasan.
+
+### Tahap 3: Validasi
+
+- Validasi kompetensi.
+- Validasi stimulus.
+- Validasi kunci.
+- Validasi distraktor.
+- Validasi pembahasan.
+- Status validasi.
+
+### Tahap 4: Latihan
+
+- Halaman pengerjaan.
+- Navigasi soal.
+- Penyimpanan jawaban.
+- Penilaian.
+- Pembahasan.
+
+### Tahap 5: Simulasi
+
+- Timer.
+- Pengaturan paket.
+- Pengacakan soal.
+- Pengumpulan jawaban.
+- Hasil simulasi.
+
+### Tahap 6: Analisis
+
+- Hasil per kompetensi.
+- Rekomendasi latihan.
+- Riwayat pengerjaan.
+- Laporan guru.
+
+### Tahap 7: Bank soal dan ekspor
+
+- Pengelolaan soal.
+- Pengelolaan stimulus.
+- Penyimpanan versi.
+- Ekspor dokumen.
+
+### Tahap 8: Finalisasi
+
+- Pengujian.
+- Perbaikan bug.
+- Pemeriksaan keamanan.
+- Pemeriksaan responsivitas.
+- Dokumentasi konfigurasi.
+
+Jika lingkungan pengembangan tidak memungkinkan semua tahap diselesaikan sekaligus, implementasikan fitur secara bertahap tanpa mengorbankan struktur dasar aplikasi.
+
+---
+
+# BAGIAN 25. KRITERIA KEBERHASILAN
+
+Aplikasi dianggap memenuhi persyaratan dasar apabila:
+
+1. Tiga jenjang dapat dipilih secara terpisah.
+2. Setiap jenjang menggunakan matriks asesmen yang benar.
+3. Generator mengikuti konfigurasi pengguna.
+4. Stimulus dan soal saling berkaitan.
+5. Soal mempunyai kunci dan pembahasan.
+6. Kunci dapat divalidasi.
+7. Kisi-kisi sesuai dengan butir soal.
+8. Jumlah soal sesuai permintaan atau kegagalan dilaporkan.
+9. Simulasi menghitung skor dengan benar.
+10. Analisis berdasarkan hasil nyata.
+11. Bank soal dapat dikelola.
+12. Data tidak hilang secara tidak terduga ketika penyimpanan persisten telah dikonfigurasi.
+13. Kunci jawaban tidak terbuka sebelum waktunya.
+14. Antarmuka responsif.
+15. Fitur yang belum tersedia dinyatakan secara jujur.
+
+---
+
+# BAGIAN 26. INSTRUKSI EKSEKUSI FINAL
+
+Sekarang mulai bangun aplikasi TKA LITERASI SMART PRO berdasarkan spesifikasi ini.
+
+Prioritaskan aplikasi yang berfungsi, bukan hanya tampilan.
+
+Mulai dengan membangun kerangka aplikasi dan konfigurasi tiga jenjang. Setelah itu, implementasikan generator stimulus, generator soal, validasi, mode latihan, simulasi, penilaian, analisis, bank soal, dan fitur pendukung lainnya.
+
+Jangan meminta pengguna mengulang informasi kompetensi yang sudah tercantum dalam prompt ini.
+
+Jangan mencampur indikator dari jenjang yang berbeda.
+
+Jangan mengarang kisi-kisi resmi, format resmi, atau klaim validitas yang belum dibuktikan.
+
+Jika terdapat informasi yang belum ditentukan, gunakan konfigurasi yang dapat diedit dan jelaskan asumsi yang digunakan.
+
+Jika ada kebutuhan infrastruktur yang belum tersedia, identifikasi kebutuhan tersebut secara jelas.
+
+Setelah implementasi, tampilkan ringkasan:
+- Fitur yang sudah berfungsi.
+- Fitur yang belum selesai.
+- Integrasi yang memerlukan konfigurasi.
+- Hasil pengujian yang benar-benar telah dilakukan.
+- Langkah untuk menjalankan dan mempublikasikan aplikasi.
+
+TARGET AKHIR:
+
+Aplikasi TKA LITERASI SMART PRO yang modern, responsif, terstruktur, mudah dikembangkan, dan mampu membantu siswa SD/MI, SMP/MTs, serta SMA/sederajat berlatih literasi membaca secara terarah, terukur, dan berkualitas.

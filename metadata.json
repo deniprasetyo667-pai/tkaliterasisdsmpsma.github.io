@@ -1,0 +1,6 @@
+{
+  "name": "TKA LITERASI SMART PRO",
+  "description": "Platform Latihan, Generator Soal AI, Simulasi TKA, dan Analisis Kompetensi Literasi Membaca untuk SD/MI, SMP/MTs, dan SMA/Sederajat",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
